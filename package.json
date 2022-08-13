@@ -9,7 +9,7 @@
 		"comments"
 	],
 	"version": "1.0.0",
-	"publisher": "zhangrenyang",
+	"publisher": "zhang-renyang",
 	"icon": "images/icon.png",
 	"repository": "https://github.com/zhangrenyang/rm-js-comment",
 	"engines": {
