@@ -8,7 +8,7 @@
 		"plugin",
 		"comments"
 	],
-	"version": "0.2.0",
+	"version": "1.0.0",
 	"publisher": "zhangrenyang",
 	"icon": "images/icon.png",
 	"repository": "https://github.com/zhangrenyang/rm-js-comment",
@@ -19,35 +19,29 @@
 		"Formatters"
 	],
 	"activationEvents": [
-		"onCommand:rm-js-comment.removeJsComment"
+		"onCommand:extension.removeJsComment"
 	],
 	"main": "./extension.js",
 	"contributes": {
 		"configuration": {
-			"type": "object",
 			"title": "rm-js-comment",
 			"properties": {
-				"rm-js-comment.yourName": {
-					"type": "string",
-					"default": "guest",
-					"description": "张仁阳"
-				},
-				"rm-js-comment.showTip": {
-					"type": "boolean",
-					"default": true,
-					"description": "rm-js-comment"
+				"rm-js-comment.replacer": {
+					"type": "object",
+					"default": [],
+					"description": "设置替换文本"
 				}
 			}
 		},
 		"commands": [
 			{
-				"command": "rm-js-comment.removeJsComment",
-				"title": "remove-js-comments"
+				"command": "extension.removeJsComment",
+				"title": "rm-js-comment"
 			}
 		],
 		"keybindings": [
 			{
-				"command": "rm-js-comment.removeJsComment",
+				"command": "extension.removeJsComment",
 				"key": "ctrl+f10",
 				"mac": "cmd+f10",
 				"when": "editorTextFocus"
@@ -57,7 +51,7 @@
 			"editor/context": [
 				{
 					"when": "editorFocus",
-					"command": "rm-js-comment.removeJsComment",
+					"command": "extension.removeJsComment",
 					"group": "navigation"
 				}
 			]
@@ -84,5 +78,8 @@
 		"commitizen": {
 			"path": "./node_modules/cz-conventional-changelog"
 		}
+	},
+	"dependencies": {
+		"@babel/core": "^7.18.10"
 	}
 }
