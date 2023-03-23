@@ -1,11 +1,14 @@
 const vscode = require('vscode');
 const babel = require("@babel/core");
+const { convertToCamelCase } = require('./utils');
 function activate(context) {
 	const disposable = vscode.commands.registerCommand('extension.removeJsComment', function () {
 		vscode.window.activeTextEditor.edit(editBuilder => {
 			const text = vscode.window.activeTextEditor.document.getText();
 			//删除注释
 			let { code } = babel.transformSync(text, { comments: false });
+			//转换变量
+			code = convertToCamelCase(code);
 			//替换变量
 			const { replacer } = vscode.workspace.getConfiguration('rm-js-comment');
 			for (const key in replacer) {
