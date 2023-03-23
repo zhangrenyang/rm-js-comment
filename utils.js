@@ -1,6 +1,6 @@
 function convertToCamelCase(str) {
 	// 匹配所有以___开头和结束的字符串
-	const regex = /___(\w+)___/g;
+	const regex = /_{2,3}(\w+)_{0,3}/g;
 	return str.replace(regex, (match, p1) => {
 		// 将匹配到的字符串转换为驼峰命名法
 		return p1
@@ -11,3 +11,5 @@ function convertToCamelCase(str) {
 
 
 exports.convertToCamelCase = convertToCamelCase;
+
+console.log(convertToCamelCase('__unused_webpack_exports'));
