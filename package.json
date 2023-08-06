@@ -6,9 +6,10 @@
 		"rm",
 		"vscode",
 		"plugin",
-		"comments"
+		"comments",
+		"emptyline"
 	],
-	"version": "1.0.3",
+	"version": "1.1.4",
 	"publisher": "zhang-renyang",
 	"icon": "images/icon.png",
 	"repository": "https://github.com/zhangrenyang/rm-js-comment",
@@ -19,7 +20,8 @@
 		"Formatters"
 	],
 	"activationEvents": [
-		"onCommand:extension.removeJsComment"
+		"onCommand:extension.removeJsComment",
+		"onCommand:extension.removeEmptyLine"
 	],
 	"main": "./extension.js",
 	"contributes": {
@@ -36,7 +38,11 @@
 		"commands": [
 			{
 				"command": "extension.removeJsComment",
-				"title": "rm-js-comment"
+				"title": "removeJsComment"
+			},
+			{
+				"command": "extension.removeEmptyLine",
+				"title": "removeEmptyLine"
 			}
 		],
 		"keybindings": [
@@ -45,6 +51,12 @@
 				"key": "ctrl+f10",
 				"mac": "cmd+f10",
 				"when": "editorTextFocus"
+			},
+			{
+				"command": "extension.removeEmptyLine",
+				"key": "ctrl+f11",
+				"mac": "cmd+f11",
+				"when": "editorTextFocus"
 			}
 		],
 		"menus": {
@@ -52,6 +64,11 @@
 				{
 					"when": "editorFocus",
 					"command": "extension.removeJsComment",
+					"group": "navigation"
+				},
+				{
+					"when": "editorFocus",
+					"command": "extension.removeEmptyLine",
 					"group": "navigation"
 				}
 			]
@@ -80,6 +97,7 @@
 		}
 	},
 	"dependencies": {
-		"@babel/core": "^7.18.10"
+		"@babel/core": "^7.22.9",
+		"@babel/preset-react": "^7.22.5"
 	}
 }

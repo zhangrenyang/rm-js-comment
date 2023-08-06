@@ -9,4 +9,5 @@ function convertToCamelCase(str) {
 			.replace(/_(\w)/g, (match, p1) => p1.toUpperCase()) // 后面单词首字母大写
 	});
 }
-exports.convertToCamelCase = convertToCamelCase;
+console.log(convertToCamelCase('__webpack_modules__'));
+console.log(convertToCamelCase('__dirname'));
