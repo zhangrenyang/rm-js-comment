@@ -1,15 +1,16 @@
 const vscode = require('vscode');
 const babel = require("@babel/core");
-const presetReact = require("@babel/preset-react");
+const env = require("@babel/preset-env");
+const jsx = require("@babel/plugin-syntax-jsx");
 const { convertToCamelCase } = require('./utils');
 function activate(context) {
 	const disposable = vscode.commands.registerCommand('extension.removeJsComment', function () {
 		vscode.window.activeTextEditor.edit(editBuilder => {
 			const text = vscode.window.activeTextEditor.document.getText();
 			const options = {
-				presets: [presetReact],
+				plugins:[jsx],
 				comments: false
-			};
+			};			
 			try{
 				let { code } = babel.transformSync(text, options);
 				//转换变量

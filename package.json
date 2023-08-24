@@ -9,7 +9,7 @@
 		"comments",
 		"emptyline"
 	],
-	"version": "1.1.4",
+	"version": "1.1.6",
 	"publisher": "zhang-renyang",
 	"icon": "images/icon.png",
 	"repository": "https://github.com/zhangrenyang/rm-js-comment",
@@ -98,6 +98,7 @@
 	},
 	"dependencies": {
 		"@babel/core": "^7.22.9",
-		"@babel/preset-react": "^7.22.5"
+		"@babel/plugin-syntax-jsx": "^7.22.5",
+		"@babel/preset-env": "^7.22.10"
 	}
 }
