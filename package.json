@@ -9,19 +9,15 @@
 		"comments",
 		"emptyline"
 	],
-	"version": "1.1.6",
+	"version": "1.1.7",
 	"publisher": "zhang-renyang",
 	"icon": "images/icon.png",
 	"repository": "https://github.com/zhangrenyang/rm-js-comment",
 	"engines": {
-		"vscode": "^1.49.0"
+		"vscode": "^1.75.0"
 	},
 	"categories": [
 		"Formatters"
-	],
-	"activationEvents": [
-		"onCommand:extension.removeJsComment",
-		"onCommand:extension.removeEmptyLine"
 	],
 	"main": "./extension.js",
 	"contributes": {
@@ -37,8 +33,12 @@
 		},
 		"commands": [
 			{
-				"command": "extension.removeJsComment",
-				"title": "removeJsComment"
+				"command": "extension.removeComment",
+				"title": "removeComment"
+			},
+			{
+				"command": "extension.readableCode",
+				"title": "readableCode"
 			},
 			{
 				"command": "extension.removeEmptyLine",
@@ -47,15 +47,21 @@
 		],
 		"keybindings": [
 			{
-				"command": "extension.removeJsComment",
-				"key": "ctrl+f10",
-				"mac": "cmd+f10",
+				"command": "extension.removeComment",
+				"key": "ctrl+shift+q",
+				"mac": "cmd+shift+q",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "extension.readableCode",
+				"key": "ctrl+shift+w",
+				"mac": "cmd+shift+w",
 				"when": "editorTextFocus"
 			},
 			{
 				"command": "extension.removeEmptyLine",
-				"key": "ctrl+f11",
-				"mac": "cmd+f11",
+				"key": "ctrl+shift+e",
+				"mac": "cmd+shift+e",
 				"when": "editorTextFocus"
 			}
 		],
@@ -63,7 +69,12 @@
 			"editor/context": [
 				{
 					"when": "editorFocus",
-					"command": "extension.removeJsComment",
+					"command": "extension.removeComment",
+					"group": "navigation"
+				},
+				{
+					"when": "editorFocus",
+					"command": "extension.readableCode",
 					"group": "navigation"
 				},
 				{
@@ -99,6 +110,7 @@
 	"dependencies": {
 		"@babel/core": "^7.22.9",
 		"@babel/plugin-syntax-jsx": "^7.22.5",
-		"@babel/preset-env": "^7.22.10"
+		"@babel/preset-env": "^7.22.10",
+		"@babel/preset-typescript": "^7.24.7"
 	}
 }
