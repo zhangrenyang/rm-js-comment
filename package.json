@@ -9,7 +9,7 @@
 		"comments",
 		"emptyline"
 	],
-	"version": "1.1.7",
+	"version": "1.2.0",
 	"publisher": "zhang-renyang",
 	"icon": "images/icon.png",
 	"repository": "https://github.com/zhangrenyang/rm-js-comment",
@@ -34,17 +34,30 @@
 		"commands": [
 			{
 				"command": "extension.removeComment",
-				"title": "removeComment"
+				"title": "Remove Comment"
+			},
+			{
+				"command": "extension.removeAllComment",
+				"title": "Remove All Comment"
 			},
 			{
 				"command": "extension.readableCode",
-				"title": "readableCode"
+				"title": "Readable Code"
 			},
 			{
 				"command": "extension.removeEmptyLine",
-				"title": "removeEmptyLine"
+				"title": "Remove Empty Line"
 			}
 		],
+		"menus": {
+			"explorer/context": [
+				{
+					"when": "explorerResourceIsFolder || selectedFilesCount > 0 || resourceLangId",
+					"command": "extension.removeAllComment",
+					"group": "comment@1"
+				}
+			]
+		},
 		"keybindings": [
 			{
 				"command": "extension.removeComment",
@@ -53,37 +66,24 @@
 				"when": "editorTextFocus"
 			},
 			{
-				"command": "extension.readableCode",
+				"command": "extension.removeComment",
 				"key": "ctrl+shift+w",
 				"mac": "cmd+shift+w",
 				"when": "editorTextFocus"
 			},
 			{
-				"command": "extension.removeEmptyLine",
+				"command": "extension.readableCode",
 				"key": "ctrl+shift+e",
 				"mac": "cmd+shift+e",
 				"when": "editorTextFocus"
+			},
+			{
+				"command": "extension.removeEmptyLine",
+				"key": "ctrl+shift+r",
+				"mac": "cmd+shift+r",
+				"when": "editorTextFocus"
 			}
-		],
-		"menus": {
-			"editor/context": [
-				{
-					"when": "editorFocus",
-					"command": "extension.removeComment",
-					"group": "navigation"
-				},
-				{
-					"when": "editorFocus",
-					"command": "extension.readableCode",
-					"group": "navigation"
-				},
-				{
-					"when": "editorFocus",
-					"command": "extension.removeEmptyLine",
-					"group": "navigation"
-				}
-			]
-		}
+		]
 	},
 	"scripts": {
 		"lint": "eslint .",
@@ -107,10 +107,5 @@
 			"path": "./node_modules/cz-conventional-changelog"
 		}
 	},
-	"dependencies": {
-		"@babel/core": "^7.22.9",
-		"@babel/plugin-syntax-jsx": "^7.22.5",
-		"@babel/preset-env": "^7.22.10",
-		"@babel/preset-typescript": "^7.24.7"
-	}
+	"dependencies": {}
 }
