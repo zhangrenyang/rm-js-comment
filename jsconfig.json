@@ -1,13 +1,9 @@
 {
-	"compilerOptions": {
-		"module": "commonjs",
-		"target": "es6",
-		"checkJs": true, /* Typecheck .js files. */
-		"lib": [
-			"es2021"
-		]
-	},
-	"exclude": [
-		"node_modules"
-	]
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es6",
+        "checkJs": true,
+        "sourceMap": true,
+        "lib": ["es6", "dom", "es2018", "es2020", "esnext"]
+    }
 }

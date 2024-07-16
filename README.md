@@ -1,61 +1,60 @@
-# JS Code Refactor for VS Code
+# rm-js-comment
 
-This VS Code extension provides functionalities to refactor your JavaScript and JSX code, including removing comments, converting variable naming to camel case, replacing specified patterns, and removing empty lines.
+This VSCode extension provides a set of utilities for managing and formatting code. It includes commands to remove comments, set prompt titles, copy formatted code to the clipboard, convert code to camel case, and remove empty lines.
 
 ## Features
 
-1. **Remove JS Comments and Convert Variables**: This feature helps in removing all comments from your JS and JSX files, converting variable names to camel case, and replacing patterns specified in the configuration.
+- **Remove Comments**: Removes all comments and empty lines from the current file.
+- **Remove All Comments**: Removes all comments and empty lines from selected files and folders.
+- **Set Prompts Title**: Sets a title for prompts, which will be added to the beginning of copied content.
+- **Copy As Prompts**: Copies selected files and folders as formatted prompts to the clipboard.
+- **Readable Code**: Converts code to camel case and replaces configured strings.
+- **Remove Empty Lines**: Removes all empty lines from the current file.
 
-2. **Remove Empty Lines**: As the name suggests, this feature will remove all the empty lines from your file, giving it a clean look.
+## Commands
+
+### 1. Remove Comments
+Removes all comments and empty lines from the currently active file.
+
+- **Command ID**: `extension.removeComment`
+
+### 2. Remove All Comments
+Removes all comments and empty lines from the selected files and folders.
+
+- **Command ID**: `extension.removeAllComment`
+
+### 3. Set Prompts Title
+Sets a title for prompts. The title is saved to a file and used by the `Copy As Prompts` command.
+
+- **Command ID**: `extension.setPromptsTitle`
+
+### 4. Copy As Prompts
+Copies selected files and folders as formatted prompts to the clipboard, including the previously set prompt title.
+
+- **Command ID**: `extension.copyAsPrompts`
+
+### 5. Readable Code
+Converts the code in the currently active file to camel case and replaces configured strings.
+
+- **Command ID**: `extension.readableCode`
+
+### 6. Remove Empty Lines
+Removes all empty lines from the currently active file.
+
+- **Command ID**: `extension.removeEmptyLine`
+
 
 ## Usage
 
-### Commands
+1. Open a file or select files and folders in the VSCode Explorer.
+2. Open the Command Palette (`Ctrl+Shift+P` or `Cmd+Shift+P` on macOS).
+3. Type the command ID (e.g., `extension.removeComment`) and press `Enter`.
 
-- `extension.removeJsComment`: To remove comments, convert variable names, and replace patterns.
-  
-- `extension.removeEmptyLine`: To remove all empty lines from your JS or JSX file.
+## Contributing
 
-## Configuration
+Contributions are welcome! Please fork the repository and submit a pull request with your changes.
 
-You can customize the patterns that need to be replaced after removing comments and converting variable names:
+## License
 
-```json
-"rm-js-comment": {
-    "replacer": {
-        "oldPattern1": "newPattern1",
-        "oldPattern2": "newPattern2"
-        // ... add more patterns as needed
-    }
-}
-
-# JS 代码重构 VS Code 扩展
-
-此 VS Code 扩展提供了重构 JavaScript 和 JSX 代码的功能，包括删除注释、将变量命名转换为驼峰式、替换指定的模式，并删除空行。
-
-## 功能
-
-1. **删除 JS 注释并转换变量**：此功能可以从您的 JS 和 JSX 文件中删除所有注释，将变量名称转换为驼峰式，并替换配置中指定的模式。
-
-2. **删除空行**：顾名思义，此功能将从文件中删除所有空行，使其看起来更加整洁。
-
-## 使用方法
-
-### 命令
-
-- `extension.removeJsComment`：用于删除注释、转换变量名称并替换模式。
-  
-- `extension.removeEmptyLine`：用于从 JS 或 JSX 文件中删除所有空行。
-
-## 配置
-
-您可以自定义删除注释和转换变量名称后需要替换的模式：
-
-```json
-"rm-js-comment": {
-    "replacer": {
-        "旧模式1": "新模式1",
-        "旧模式2": "新模式2"
-        // ... 根据需要添加更多模式
-    }
-}
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+```
