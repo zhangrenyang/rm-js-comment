@@ -72,13 +72,13 @@ function getPromptsTitlePath() {
 	return promptsTitlePath;
 }
 
-async function setPromptsTitle() {
+async function setPromptsTitle(open = false) {
 	const promptsTitlePath = getPromptsTitlePath();
 	if (!fs.existsSync(promptsTitlePath)) {
 		const data = ["修改下面的代码，实现 \n要求如下\n1.回答用中文\n2.输出修改的代码，没有修改的代码不用输出"]
 		fs.writeFileSync(promptsTitlePath, JSON.stringify(data, null, 2), 'utf-8');
 	}
-	vscode.window.showTextDocument(vscode.Uri.file(promptsTitlePath));
+	if (open) vscode.window.showTextDocument(vscode.Uri.file(promptsTitlePath));
 }
 
 function getPromptsTitleFromFile() {
@@ -117,6 +117,7 @@ async function copyAsPrompts(uri, selectedUris) {
 		vscode.window.showErrorMessage('No workspace folder is open');
 		return;
 	}
+	await setPromptsTitle()
 	const rootPath = workspaceFolders[0].uri.fsPath;
 	let uriList = selectedUris.length > 0 ? selectedUris : [uri];
 	let output = '';
