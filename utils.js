@@ -208,11 +208,25 @@ function removeCommentAndEmptyLines(code) {
 	return code;
 }
 
+function removePlusAtLineStart() {
+	const editor = vscode.window.activeTextEditor;
+	if (!editor) return;
+	editor.edit(editBuilder => {
+		const text = editor.document.getText();
+		const newText = text.replace(/^\+/gm, ' '); // 将行首的加号替换为空格
+		const end = new vscode.Position(editor.document.lineCount + 1, 0);
+		editBuilder.replace(new vscode.Range(new vscode.Position(0, 0), end), newText);
+	}).then(() => {
+		vscode.commands.executeCommand('editor.action.formatDocument');
+	});
+}
+
 module.exports = {
 	removeComment,
 	removeAllComment,
 	setPromptsTitle,
 	copyAsPrompts,
 	readableCode,
-	removeEmptyLine
+	removeEmptyLine,
+	removePlusAtLineStart
 }

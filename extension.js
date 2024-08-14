@@ -5,7 +5,8 @@ const {
 	setPromptsTitle,
 	copyAsPrompts,
 	readableCode,
-	removeEmptyLine
+	removeEmptyLine,
+	removePlusAtLineStart
 } = require('./utils');
 
 function activate(context) {
@@ -15,6 +16,7 @@ function activate(context) {
 	context.subscriptions.push(vscode.commands.registerCommand('extension.copyAsPrompts', copyAsPrompts));
 	context.subscriptions.push(vscode.commands.registerCommand('extension.readableCode', readableCode));
 	context.subscriptions.push(vscode.commands.registerCommand('extension.removeEmptyLine', removeEmptyLine));
+	context.subscriptions.push(vscode.commands.registerCommand('extension.removePlusAtLineStart', removePlusAtLineStart));
 }
 
 function deactivate() { }

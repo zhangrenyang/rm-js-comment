@@ -9,7 +9,7 @@
 		"comments",
 		"emptyline"
 	],
-	"version": "1.2.6",
+	"version": "1.2.7",
 	"publisher": "zhang-renyang",
 	"icon": "images/icon.png",
 	"repository": "https://github.com/zhangrenyang/rm-js-comment",
@@ -56,6 +56,10 @@
 			{
 				"command": "extension.readableCode",
 				"title": "🌟 Readable Code"
+			},
+			{
+				"command": "extension.removePlusAtLineStart",
+				"title": "✂️ Remove Plus At Line Start"
 			}
 		],
 		"menus": {
@@ -74,6 +78,11 @@
 					"when": "explorerResourceIsFolder || selectedFilesCount > 0 || resourceLangId",
 					"command": "extension.removeAllComment",
 					"group": "0_comment@3"
+				},
+				{
+					"when": "explorerResourceIsFolder || selectedFilesCount > 0 || resourceLangId",
+					"command": "extension.removePlusAtLineStart",
+					"group": "0_comment@4"
 				}
 			],
 			"editor/context": [
@@ -96,6 +105,11 @@
 				{
 					"when": "editorFocus",
 					"command": "extension.readableCode",
+					"group": "navigation"
+				},
+				{
+					"when": "editorFocus",
+					"command": "extension.removePlusAtLineStart",
 					"group": "navigation"
 				}
 			]
