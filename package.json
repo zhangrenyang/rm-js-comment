@@ -9,7 +9,7 @@
 		"comments",
 		"emptyline"
 	],
-	"version": "1.2.7",
+	"version": "1.3.3",
 	"publisher": "zhang-renyang",
 	"icon": "images/icon.png",
 	"repository": "https://github.com/zhangrenyang/rm-js-comment",
@@ -60,6 +60,10 @@
 			{
 				"command": "extension.removePlusAtLineStart",
 				"title": "✂️ Remove Plus At Line Start"
+			},
+			{
+				"command": "extension.addMissingImports",
+				"title": "➕ Add Missing Imports"
 			}
 		],
 		"menus": {
@@ -83,6 +87,11 @@
 					"when": "explorerResourceIsFolder || selectedFilesCount > 0 || resourceLangId",
 					"command": "extension.removePlusAtLineStart",
 					"group": "0_comment@4"
+				},
+				{
+					"when": "explorerResourceIsFolder || selectedFilesCount > 0 || resourceLangId",
+					"command": "extension.addMissingImports",
+					"group": "0_comment@5"
 				}
 			],
 			"editor/context": [
@@ -110,6 +119,11 @@
 				{
 					"when": "editorFocus",
 					"command": "extension.removePlusAtLineStart",
+					"group": "navigation"
+				},
+				{
+					"when": "editorFocus",
+					"command": "extension.addMissingImports",
 					"group": "navigation"
 				}
 			]
@@ -155,6 +169,18 @@
 				"command": "extension.readableCode",
 				"key": "ctrl+shift+y",
 				"mac": "cmd+shift+y",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "extension.removePlusAtLineStart",
+				"key": "ctrl+shift+u",
+				"mac": "cmd+shift+u",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "extension.addMissingImports",
+				"key": "ctrl+shift+i",
+				"mac": "cmd+shift+i",
 				"when": "editorTextFocus"
 			}
 		]

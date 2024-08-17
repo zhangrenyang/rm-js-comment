@@ -2,8 +2,14 @@
     "compilerOptions": {
         "module": "commonjs",
         "target": "es6",
-        "checkJs": true,
-        "sourceMap": true,
-        "lib": ["es6", "dom", "es2018", "es2020", "esnext"]
+        "checkJs": false,
+        "sourceMap": false,
+        "lib": [
+            "es6",
+            "dom",
+            "es2018",
+            "es2020",
+            "esnext"
+        ]
     }
 }

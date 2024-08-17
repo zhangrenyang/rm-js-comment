@@ -6,7 +6,8 @@ const {
 	copyAsPrompts,
 	readableCode,
 	removeEmptyLine,
-	removePlusAtLineStart
+	removePlusAtLineStart,
+	addMissingImports
 } = require('./utils');
 
 function activate(context) {
@@ -17,6 +18,7 @@ function activate(context) {
 	context.subscriptions.push(vscode.commands.registerCommand('extension.readableCode', readableCode));
 	context.subscriptions.push(vscode.commands.registerCommand('extension.removeEmptyLine', removeEmptyLine));
 	context.subscriptions.push(vscode.commands.registerCommand('extension.removePlusAtLineStart', removePlusAtLineStart));
+	context.subscriptions.push(vscode.commands.registerCommand('extension.addMissingImports', addMissingImports));
 }
 
 function deactivate() { }

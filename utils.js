@@ -213,12 +213,28 @@ function removePlusAtLineStart() {
 	if (!editor) return;
 	editor.edit(editBuilder => {
 		const text = editor.document.getText();
-		const newText = text.replace(/^\+/gm, ' '); // 将行首的加号替换为空格
+		const newText = text.replace(/^\s*\+/gm, match => ' '.repeat(match.length - 1));
 		const end = new vscode.Position(editor.document.lineCount + 1, 0);
 		editBuilder.replace(new vscode.Range(new vscode.Position(0, 0), end), newText);
 	}).then(() => {
+		vscode.commands.executeCommand('editor.action.sourceAction', {
+			kind: 'source.addMissingImports',
+			apply: 'ifSingle'
+		});
 		vscode.commands.executeCommand('editor.action.formatDocument');
 	});
+}
+
+
+async function addMissingImports() {
+	const editor = vscode.window.activeTextEditor;
+	if (!editor) return;
+	if (editor) {
+		vscode.commands.executeCommand('editor.action.sourceAction', {
+			kind: 'source.addMissingImports',
+			apply: 'ifSingle'
+		});
+	}
 }
 
 module.exports = {
@@ -228,5 +244,7 @@ module.exports = {
 	copyAsPrompts,
 	readableCode,
 	removeEmptyLine,
-	removePlusAtLineStart
+	removePlusAtLineStart,
+	addMissingImports
 }
+
