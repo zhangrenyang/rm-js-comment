@@ -9,7 +9,7 @@
 		"comments",
 		"emptyline"
 	],
-	"version": "1.3.3",
+	"version": "1.3.7",
 	"publisher": "zhang-renyang",
 	"icon": "images/icon.png",
 	"repository": "https://github.com/zhangrenyang/rm-js-comment",
@@ -64,6 +64,10 @@
 			{
 				"command": "extension.addMissingImports",
 				"title": "➕ Add Missing Imports"
+			},
+			{
+				"command": "extension.toUppercase",
+				"title": "🔠 Transform to Uppercase"
 			}
 		],
 		"menus": {
@@ -181,6 +185,12 @@
 				"command": "extension.addMissingImports",
 				"key": "ctrl+shift+i",
 				"mac": "cmd+shift+i",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "extension.toUppercase",
+				"key": "ctrl+shift+u",
+				"mac": "cmd+shift+u",
 				"when": "editorTextFocus"
 			}
 		]

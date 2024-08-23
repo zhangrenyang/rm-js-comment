@@ -7,10 +7,12 @@ const {
 	readableCode,
 	removeEmptyLine,
 	removePlusAtLineStart,
-	addMissingImports
+	addMissingImports,
+	toUppercase
 } = require('./utils');
 
 function activate(context) {
+	context.subscriptions.push(vscode.commands.registerCommand('extension.toUppercase', toUppercase));
 	context.subscriptions.push(vscode.commands.registerCommand('extension.removeComment', removeComment));
 	context.subscriptions.push(vscode.commands.registerCommand('extension.removeAllComment', removeAllComment));
 	context.subscriptions.push(vscode.commands.registerCommand('extension.setPromptsTitle', setPromptsTitle));

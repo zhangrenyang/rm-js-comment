@@ -108,7 +108,6 @@ async function removeAllComment(uri, selectedUris) {
 	for (const uri of uriList) {
 		await processUri(uri);
 	}
-	vscode.window.showInformationMessage('Comments and empty lines removed from selected files and folders.');
 }
 
 async function copyAsPrompts(uri, selectedUris) {
@@ -132,7 +131,6 @@ async function copyAsPrompts(uri, selectedUris) {
 		});
 	}
 	await vscode.env.clipboard.writeText(output);
-	vscode.window.showInformationMessage('Copied to clipboard');
 }
 
 function readableCode() {
@@ -236,7 +234,18 @@ async function addMissingImports() {
 		});
 	}
 }
+function toUppercase() {
+	const editor = vscode.window.activeTextEditor;
+	if (!editor) return;
 
+	const selection = editor.selection;
+	const text = editor.document.getText(selection);
+	const upperText = text.toUpperCase();
+
+	editor.edit(editBuilder => {
+		editBuilder.replace(selection, upperText);
+	});
+}
 module.exports = {
 	removeComment,
 	removeAllComment,
@@ -245,6 +254,7 @@ module.exports = {
 	readableCode,
 	removeEmptyLine,
 	removePlusAtLineStart,
-	addMissingImports
+	addMissingImports,
+	toUppercase
 }
 
